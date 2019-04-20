@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link  rel = "stylesheet"  href = "css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/iconfont.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script src = "js/jquery-3.3.1.js"> </script >
+	<script src="js/bootstrap.min.js"></script>
+</head>
+</head>
+<title>首页</title>
+
+</head>
+<body>
+<!--<video autoplay loop poster="img/preview.jpg" id="bgvid" > -->
+<!--<source src="img/EA_Masseffect_bg_teaser.mp4" type="video/mp4">-->
+</video>
+<style type="text/css">
+	#bgvid {
+
+		position: fixed; right: 0; bottom: 0;
+
+		min-width: 100%; min-height: 100%;
+
+		width: auto;
+
+		height: auto;
+
+		z-index: -100;
+
+		background: white ;
+
+		background-size: cover; }
+</style>
+
+
+<!--动态时间-->
+<script type="text/javascript">
+    function showTime(){
+        nowtime=new Date();
+        year=nowtime.getFullYear();
+        month=nowtime.getMonth()+1;
+        date=nowtime.getDate();
+        document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+    }
+    setInterval("showTime()",1000);
+
+</script>
+
+
+
+<!--小标题-->
+<div class="container">
+	<div style="margin-bottom: 2px;">
+		<div class="row clearfix" >
+			<div class="col-md-4 column">
+			</div>
+			<div class="col-md-4 column">
+			</div>
+			<div class="col-md-4 column">
+				<span style="float: right;color: white;" id="mytime">时间加载中</span>
+			</div>
+		</div>
+	</div>
+	<!--导航栏-->
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default " style="opacity:1.3;background-color: #E2EAFC;" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button> <a class="navbar-brand" href="index.html" style="color: green;">首页</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" style="color: white;">
+						<!--   class="active"  选中          -->
+						<li >
+							<a href="#">拍卖</a>
+						</li>
+						<li>
+							<a href="#">社区</a>
+						</li>
+						<!--<li class="dropdown">-->
+							<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">分类功能<strong class="caret"></strong></a>-->
+							<!--<ul class="dropdown-menu">-->
+								<!--<li>-->
+									<!--<a href="#">功能</a>-->
+								<!--</li>-->
+								<!--<li>-->
+									<!--<a href="#">功能2</a>-->
+								<!--</li>-->
+
+							<!--</ul>-->
+						<!--</li>-->
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" id="search" />
+						</div> <button type="button" class="btn btn-default" onclick="sosuo()" style="margin-right:50px">搜索</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">我的关注</a>
+						</li>
+						<li class="dropdown">
+							<!--未登录  用户名为登录  -->
+							<a href="#"  id="name" >用户名<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">个人信息</a>
+								</li>
+								<li>
+									<a href="#">我的订单</a>
+								</li>
+								<li>
+									<a href="#">我的</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="#" onclick="outLogin()">注销</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+			</nav>
+
+
+
+			<div class="row clearfix">
+				<div class="col-md-12 column" style="border: 1px #E0E0E0 solid">
+					<div class="row clearfix">
+						<div class="col-md-2 column">
+							<!--类型-->
+
+							<div class="container">
+								<div class="row clearfix">
+									<div class="col-md-2 column">
+
+									</div>
+									<div class="col-md-4 column">
+									</div>
+									<div class="col-md-4 column">
+									</div>
+								</div>
+							</div>
+							<!---->
+							<div class="row clearfix">
+								<div class="col-md-12.12 column">
+										<div class="banner-warp">
+											<div class="caidan-warp">
+												<!--<ul class="caidan-list">-->
+													<!--<li class="one-li">-->
+														<!--<span class="name">空调</span>-->
+														<!--<div class="tow-caidan">-->
+															<!--<ul class="lei">-->
+																<!--<li>-->
+																	<!--<a href="Listpage.html">-->
+																		<!--挂壁式空调-->
+																	<!--</a>-->
+																<!--</li>-->
+															<!--</ul>-->
+														<!--</div>-->
+													<!--</li>-->
+												<!--</ul>-->
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-10 column">
+							<script type="text/javascript">
+                                $(function(){
+                                    $("#carouselDiv").carousel({interval: 2000})
+                                })
+							</script>
+							<div class="carousel slide" id="carouselDiv" style="left: 15px">
+								<ol class="carousel-indicators">
+									<li class="active" data-slide-to="0" data-target="#carouselDiv">
+
+									</li>
+									<li data-slide-to="1" data-target="#carouselDiv">
+
+									</li>
+									<li data-slide-to="2" data-target="#carouselDiv">
+									</li>
+								</ol>
+								<div class="carousel-inner" style="height:400px;" id="RateImg">
+									<div class="item active">
+										<img alt="" src="img/timg (1).jpg" width="100%" height="100%"/>
+										<div class="carousel-caption">
+											<h4>
+											</h4>
+										</div>
+									</div>
+									<div class="item">
+										<img alt="" src="img/timg (1).jpg" width="100%" height="100%"/>
+										<div class="carousel-caption">
+											<h4>
+											</h4>
+										</div>
+									</div>
+									<div class="item">
+										<img alt="" src="img/timg (1).jpg"/>
+										<div class="carousel-caption">
+											<h4>
+											</h4>
+										</div>
+									</div>
+								</div> <a class="left carousel-control" href="#carouselDiv" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span></a>
+								<a class="right carousel-control" href="#carouselDiv" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-12.12 column">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-4 column" style="border: 1px black solid">
+			<h2>
+				标题
+			</h2>
+			<p>
+				内容内容内容内容内容内容内容内容内容内容	内容内容内容内容内容内容内容内容内容内容	内容内容内容内容内容内容内容内容内容内容
+			</p>
+			<p>
+				<a class="btn" href="#">更多 »</a>
+			</p>
+		</div>
+		<div class="col-md-4 column" style="border: 1px black solid">
+			<h2>
+				标题
+			</h2>
+			<p>
+				内容内容内容内容内容内容内容内容内容内容	内容内容内容内容内容内容内容内容内容内容	内容内容内容内容内容内容内容内容内容内容
+			</p>
+			<p>
+				<a class="btn" href="#">更多 »</a>
+			</p>
+		</div>
+		<div class="col-md-4 column" style="border: 1px black solid">
+			<h2>
+				标题
+			</h2>
+			<p>
+				内容内容内容内容内容内容内容内容内容内容	内容内容内容内容内容内容内容内容内容内容	内容内容内容内容内容内容内容内容内容内容
+			</p>
+			<p>
+				<a class="btn" href="#">更多 »</a>
+			</p>
+		</div>
+	</div>
+
+	<!--展示-->
+	<style type="text/css">
+		#imgDiv img{
+			height: 300px;width: 100%;
+		}
+	</style>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row" id="imgDiv" >
+
+			</div>
+		</div>
+	</div>
+
+	<!--底部-->
+
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="jumbotron">
+					<div class="footer" >
+						<div class="footer-right">
+							<div class="footer-nav">
+								<a href="#">阿里巴巴集团</a>|
+								<a href="#">阿里巴巴国际站</a>|
+								<a href="#">阿里巴巴中国站</a>|
+								<a href="#">全球速卖通</a>|
+								<a href="#">淘宝网</a>|
+								<a href="#">天猫</a>|
+								<a href="#">聚划算</a>|
+								<a href="#">一淘</a>|
+								<a href="#">阿里妈妈</a>|
+								<a href="#">阿里云计算</a>|
+								<a href="#">云OS</a>|
+								<a href="#">万网</a>|
+								<a href="#">支付宝</a>|
+								<a href="#">来往</a>
+							</div>
+							<div class="about-tao">
+								<a href="#">关于淘宝</a>
+								<a href="#">合作伙伴</a>
+								<a href="#">营销中心</a>
+								<a href="#">廉正举报</a>
+								<a href="#">联系客服</a>
+								<a href="#">开放平台</a>
+								<a href="#">诚征英才</a>
+								<a href="#">联系我们</a>
+								<a href="#">网站地图</a>
+								<a href="#">法律声明</a>
+								<span class="gary-text">&copy; 2019 Mose.com 版权所有</span>
+							</div>
+							<hr style="border: #A52600  solid 1px; " />
+							<p ><span>网络文化经营许可证：文网文[2010]040号</span>|<span>增值电信业务经营许可证：浙B2-20080224-1</span>|<span>信息网络传播视听节目许可证：1109364号</span></p>
+							<div class="some-info">
+								<img src="img/some.png" />
+							</div>
+						</div>
+					</div>
+					<!---->
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    var currentPage = 1;
+
+    select();
+
+    function select() {
+        $.ajax({
+            type: 'POST',
+            url: 'getGoodsInfoBy/'+currentPage,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                console.log(response)
+                $(response.list).each(function (index, item) {
+                    $("#imgDiv").append($("<div class=\"col-md-4\">\n" +
+                        "\t\t\t\t\t<div class=\"thumbnail\"><a href='#'>\n" +
+                        "\t\t\t\t\t\t<img alt=\"300x200\" src=\"img/GoodsImg/"+item.goods_pic+"\"   />\n" +
+                        "\t\t\t\t\t\t<div class=\"caption\">\n" +
+                        "\t\t\t\t\t\t\t<h3 style='color: black';style='text-decoration: none'>" + item.goods_title + "</h3>" +
+                        "\t\t\t\t\t\t\t<p>" + item.goods_description + "</p><p>\n" +
+                        "\t\t\t\t\t\t\t\t <a class=\"btn btn-primary\" href=\"#\">￥" + item.goods_price + "</a>\n" +
+                        "\t\t\t\t\t\t\t</p>\n" +
+                        "\t\t\t\t\t\t</div>\n" +
+                        "\t\t\t\t\t</a></div>\n" +
+                        "\t\t\t\t</div>"))
+
+                    $("#RateImg img:eq("+index+")").attr("src",'img/GoodsImg/'+item.goods_pic);
+                })
+            },
+            error: function (response) {
+                console.log(response)
+            },
+            dataType: 'json'
+        })
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: 'UserInfoName',
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            console.log(response)
+            if (response=="null") {
+                $("#name").html("<a href='login.html'>登录</a>")
+                // $("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><a href='user.html'>请登录</a>或<a href='user.html' >注册用户</a><strong class=\"caret\"></strong></a>").insertBefore($(".dropdown"))
+            } else {
+                $("#name").addClass("dropdown-toggle")
+                $("#name").attr("data-toggle","dropdown")
+                $("#name").text(response)
+                // $("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" "<strong class=\"caret\"></strong></a>")
+            }
+        },error: function (response) {
+            console.log(response)
+        },
+        dataType: 'text'
+    })
+
+    $.ajax({
+        type: 'POST',
+        url: 'getMenuSearch',
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            console.log(response)
+            $(response).each(function (index, item) {
+				$(".caidan-warp").append($("<ul class=\"caidan-list\"'>\n" +
+                    "\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"one-li\">\n" +
+                    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name\">"+item.type_name+"</span>\n" +
+                    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"tow-caidan tow-caidan"+(index+1)+"\"><ul class=\"lei\" id='dalei"+item.type_id+"'></ul></div>"))
+				$(item.children).each(function (index, item) {
+					$("#dalei"+item.type_pid).append($("<li id='Menu'><a href=\"sosuo.html?key="+encodeURI(item.type_name)+"\">"+item.type_name+"</a></li></li></ul>"))
+                })
+
+            })
+        },error: function (response) {
+            console.log(response)
+        },
+        dataType: 'JSON'
+    })
+
+
+
+    function sosuo() {
+        var key=$("#search").val();
+        var url="sosuo.html?key="+encodeURI(key);
+        window.location.href=url;
+    }
+
+    function outLogin() {
+
+    }
+</script>
+</html>
+

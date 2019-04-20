@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link  rel = "stylesheet"  href = "css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/Listpage.css">
+    <script src = "js/jquery-3.3.1.js"> </script >
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/address.js"></script>
+</head>
+</head>
+<title>搜索</title>
+
+</head>
+<body>
+<!--<video autoplay loop poster="img/preview.jpg" id="bgvid" > -->
+<!--<source src="img/EA_Masseffect_bg_teaser.mp4" type="video/mp4">-->
+</video>
+<style type="text/css">
+    #bgvid {
+
+        position: fixed; right: 0; bottom: 0;
+
+        min-width: 100%; min-height: 100%;
+
+        width: auto;
+
+        height: auto;
+
+        z-index: -100;
+
+        background: white ;
+
+        background-size: cover; }
+</style>
+
+
+<!--动态时间-->
+<script type="text/javascript">
+    function showTime(){
+        nowtime=new Date();
+        year=nowtime.getFullYear();
+        month=nowtime.getMonth()+1;
+        date=nowtime.getDate();
+        document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+    }
+    setInterval("showTime()",1000);
+
+</script>
+
+
+
+<!--小标题-->
+<div class="container">
+    <div style="margin-bottom: 2px;">
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+            </div>
+            <div class="col-md-4 column">
+            </div>
+            <div class="col-md-4 column">
+                <span style="float: right;color: white;" id="mytime">时间加载中</span>
+            </div>
+        </div>
+    </div>
+    <!--导航栏-->
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default " style="opacity:1.3;background-color: #E2EAFC;" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button> <a class="navbar-brand" href="index.html" style="color: green;">首页</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" style="color: white;">
+                        <!--   class="active"  选中          -->
+                        <li >
+                            <a href="#">拍卖</a>
+                        </li>
+                        <li>
+                            <a href="#">社区</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">分类功能<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">功能</a>
+                                </li>
+                                <li>
+                                    <a href="#">功能2</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="search" />
+                        </div> <button type="button" class="btn btn-default" onclick="select()">搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">我的关注</a>
+                        </li>
+                        <li class="dropdown">
+                            <!--未登录  用户名为登录  -->
+                            <a href="#"  id="name" >用户名<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">个人信息</a>
+                                </li>
+                                <li>
+                                    <a href="#">我的订单</a>
+                                </li>
+                                <li>
+                                    <a href="#">我的</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#" onclick="outLogin()">注销</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+
+
+
+            <!--<div class="row clearfix">-->
+                <!--<div class="col-md-12 column">-->
+                    <!--<div class="row clearfix">-->
+                        <!--<div class="col-md-2 column">-->
+                            <!--&lt;!&ndash;类型&ndash;&gt;-->
+
+
+                            <!--&lt;!&ndash;&ndash;&gt;-->
+                            <!--<div class="row clearfix">-->
+                                <!--<div class="col-md-12.12 column">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--<div class="row clearfix">-->
+                        <!--<div class="col-md-12.12 column">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+                <!-- 网页主体 -->
+                <div id="main">
+                    <!-- container容器 -->
+                    <div class="main-wrap container">
+                        <!-- 商品属性筛选 -->
+                        <div class="cate_cells">
+                            <!-- 返回首页部分头部 -->
+                            <div class="cate_cell cate_top">
+                                <div class="cate_topinner">
+                                    <a href="index.html" class="home_page">首页</a>
+                                    <i class="iconfont iconweibiaoti34"></i>
+                                    <a href="javascript:;">空调</a>
+                                </div>
+                                <div class="cate_topnum">
+                                    共<i class="cate_count">24</i>件商品
+                                </div>
+                            </div>
+                            <!-- 商品分类 -->
+                            <div class="cate_cell item">
+                                <div class="cate_cell_fl">分类:</div>
+                                <div class="cate_cell_lb">
+                                    <ul class="cate_list" id='dalei'>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 商品根据机型分类 -->
+                            <div class="cate_cell item">
+                                <div class="cate_cell_fl">热门:</div>
+                                <div class="cate_cell_lb">
+                                    <ul class="cate_list" id="xiaolei">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 商品展示栏 主要Main图片部分-->
+                        <div class="conten_wrap">
+                            <!-- 根据价格和城市过滤 -->
+                            <div class="cata_cells cate_filter">
+                                <div class="cate_cell cate_top">
+                                    <div class="cate_cell_tj">
+                                        <div class="cate_tj filter_item"><span  onclick="getRecommend('recommend')">推荐</span></div>
+                                        <div class="filter_item">
+                                            <i class="iconfont iconplus-select-top"></i>
+                                            <span class="price_tip" onclick="getRecommend('goods_price')">价格高低</span>
+                                            <i class="iconfont iconplus-select-down"></i>
+                                        </div>
+                                        <div class="filter_item filter_city">
+                                            <select id="cmbProvince" name="cmbProvince"></select>
+                                            <select id="cmbCity" name="cmbCity"></select>
+                                            <select id="cmbArea" name="cmbArea"></select>
+                                            <script type="text/javascript">
+                                                addressInit('cmbProvince', 'cmbCity', 'cmbArea');
+                                            </script>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+
+        </div>
+    </div>
+
+    <!--展示-->
+    <style type="text/css">
+        #imgDiv img{
+            height: 300px;width: 100%;
+        }
+    </style>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="row" id="imgDiv" >
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--底部-->
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="row clearfix">
+                    <div class="jumbotron">
+                        <div class="footer" >
+                            <div class="footer-right">
+                                <div class="footer-nav">
+                                    <a href="#">阿里巴巴集团</a>|
+                                    <a href="#">阿里巴巴国际站</a>|
+                                    <a href="#">阿里巴巴中国站</a>|
+                                    <a href="#">全球速卖通</a>|
+                                    <a href="#">淘宝网</a>|
+                                    <a href="#">天猫</a>|
+                                    <a href="#">聚划算</a>|
+                                    <a href="#">一淘</a>|
+                                    <a href="#">阿里妈妈</a>|
+                                    <a href="#">阿里云计算</a>|
+                                    <a href="#">云OS</a>|
+                                    <a href="#">万网</a>|
+                                    <a href="#">支付宝</a>|
+                                    <a href="#">来往</a>
+                                </div>
+                                <div class="about-tao">
+                                    <a href="#">关于淘宝</a>
+                                    <a href="#">合作伙伴</a>
+                                    <a href="#">营销中心</a>
+                                    <a href="#">廉正举报</a>
+                                    <a href="#">联系客服</a>
+                                    <a href="#">开放平台</a>
+                                    <a href="#">诚征英才</a>
+                                    <a href="#">联系我们</a>
+                                    <a href="#">网站地图</a>
+                                    <a href="#">法律声明</a>
+                                    <span class="gary-text">&copy; 2019 Mose.com 版权所有</span>
+                                </div>
+                                <hr style="border: #A52600  solid 1px; " />
+                                <p ><span>网络文化经营许可证：文网文[2010]040号</span>|<span>增值电信业务经营许可证：浙B2-20080224-1</span>|<span>信息网络传播视听节目许可证：1109364号</span></p>
+                                <div class="some-info">
+                                    <img src="img/some.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    var currentPage = 1;
+    var maxpage=0;
+
+    var address;
+
+    $("#cmbArea").change(function () {
+        address=$("#cmbProvince").val()+$("#cmbCity").val()+$("#cmbArea").val()
+        select()
+    })
+    
+    var string = window.location.search.split("=")[1];
+    $("#search").val(decodeURI(string))
+
+    var Cause;
+    var Asc;
+
+    select();
+
+    function select() {
+        $.ajax({
+            type: 'POST',
+            url: 'getSearchGoodS/'+currentPage,
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                "key":$("#search").val(),
+                "cause":Cause,
+                "asc":Asc,
+                "city":address
+            }),
+            success: function (response) {
+                console.log(response)
+                if(response.list==""){
+                    address="";
+                    $("#search").val("");
+                    select()
+                    // alert("没有记录")
+                }else {
+                    $("#imgDiv").empty();
+                    $("#PageCount").empty();
+                    maxpage = response.lastPage;
+                    $(response.list).each(function (index, item) {
+                        $("#imgDiv").append($("<div class=\"col-md-4\"><a href='#'> \n" +
+                            "\t\t\t\t\t<div class=\"thumbnail\">\n" +
+                            "\t\t\t\t\t\t<img alt=\"300x200\" src=\"img/GoodsImg/" + item.goods_pic + "\"   />\n" +
+                            "\t\t\t\t\t\t<div class=\"caption\">\n" +
+                            "\t\t\t\t\t\t\t<h3>" + item.goods_title + "</h3>" +
+                            "\t\t\t\t\t\t\t<p>" + item.goods_description + "</p><p>\n" +
+                            "\t\t\t\t\t\t\t\t <a class=\"btn btn-primary\" href=\"#\">￥" + item.goods_price + "</a>\n" +
+                            "\t\t\t\t\t\t\t</p>\n" +
+                            "\t\t\t\t\t\t</div>\n" +
+                            "\t\t\t\t\t</a></div>\n" +
+                            "\t\t\t\t</div>"))
+
+                        // $("#RateImg img:eq("+index+")").attr("src",'img/GoodsImg/'+item.goods_pic);
+                    })
+                    if(response.lastPage>1){
+                        $("<div id='PageCount'><tr id='Page'>" +
+                            "<td colspan=\"6\" align=\"center\">" +
+                            "<ul class=\"pagination\" id='page'>" +
+                            "<li id='back'><a  onclick='MovePage(1)'>上一页</a></li>" +
+                            "<li id='next'><a  onclick='MovePage(2)'>下一页</a></li>" +
+                            "</ul>" +
+                            "</td>" +
+                            "</tr></div>").insertAfter($("#imgDiv"))
+
+                        for (var i = 1; i <= response.lastPage; i++) {
+                            $("<li class='li" + i + "' value='" + i + "' onclick='Auto(" + i + ")'><a>" + i + "</a></li>").insertAfter($("#page li:eq(-2)"))
+                        }
+
+                    }
+
+                    if (currentPage == 1) {
+                        $("#back").addClass("disabled")
+                    } else {
+                        $("#back").removeClass("disabled")
+                    }
+                    if (currentPage != maxpage) {
+                        $("#next").removeClass("disabled")
+                    } else {
+                        $("#next").addClass("disabled")
+                    }
+                    $("#page li").removeClass("active");
+                    $(".li" + currentPage).addClass("active")
+                }
+            },
+            error: function (response) {
+                console.log(response)
+            },
+            dataType: 'json'
+        })
+    }
+
+    function Auto(i) {
+        currentPage=i;
+        select();
+    }
+
+    function MovePage(val) {
+        if(val==1){
+            if(--currentPage<1){
+                currentPage=1;
+                $("#back").addClass("disabled")
+                return
+            }
+            select();
+        }else if(val==2) {
+            if (++currentPage > maxpage) {
+                currentPage = maxpage
+                $("#next").addClass("disabled")
+                return
+            }
+            select();
+        }
+    }
+
+
+    $.ajax({
+        type: 'POST',
+        url: 'UserInfoName',
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            if (response=="null") {
+                $("#name").html("<a href='login.html'>登录</a>")
+            } else {
+                $("#name").addClass("dropdown-toggle")
+                $("#name").attr("data-toggle","dropdown")
+                $("#name").text(response)
+            }
+        },error: function (response) {
+            console.log(response)
+        },
+        dataType: 'text'
+    })
+
+
+    $.ajax({
+        type: 'POST',
+        url: 'getMenuSearch',
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            console.log(response)
+            $(response).each(function (index,item) {
+                $("#dalei").append($("<li id='dalei"+item.type_id+"'><a onclick='getMenuInfo("+item.type_id+")'>"+item.type_name+"</a></li>"))
+
+                $(item.children).each(function (index, item) {
+                    $("#xiaolei").append($("<li class='xl"+item.type_pid+"'><a href=\'sosuo.html?key="+encodeURI(item.type_name)+"\'>"+item.type_name+"</a></li>"));
+                })
+
+            })
+        },error: function (response) {
+            console.log(response)
+        },
+        dataType: 'JSON'
+    });
+
+    function getMenuInfo(val) {
+        $(".xl"+val+"").attr("display","inline");
+    }
+
+    var tcount=1;
+
+    function getRecommend(val) {
+       tcount++;
+       if(tcount%2==0){
+           Asc="asc"
+       }else {
+           Asc="desc"
+       }
+       Cause=val
+        select()
+    }
+
+
+    function outLogin() {
+
+    }
+</script>
+</html>

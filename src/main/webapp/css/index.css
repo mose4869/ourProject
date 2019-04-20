@@ -1,0 +1,513 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img, input {
+  margin: 0;
+  padding: 0; }
+
+ul, ol, li {
+  list-style: none; }
+
+em, i {
+  font-style: normal; }
+
+b, strong {
+  font-weight: normal; }
+
+a, u {
+  text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 16px;
+  font-weight: normal; }
+
+input {
+  outline: none; }
+
+img {
+  display: block; }
+
+img, fieldset {
+  border: 0; }
+
+.clear-height {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden; }
+
+.service-warp, .banner-warp, .fenlei-warp, .star-warp {
+  width: 1200px;
+  margin: 0 auto; }
+
+.service {
+  height: 40px;
+  border-bottom: 1px solid #ccc; }
+
+.service-warp div {
+  float: left;
+  width: 240px;
+  height: 40px; }
+  .service-warp div i {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url(../images/index_service_sprite_v3.png);
+    background-size: 200px 90px; }
+  .service-warp div span {
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 12px; }
+
+.service-warp .banQuan i {
+  background-position: 0px 0px; }
+
+.service-warp .qianbao i {
+  background-position: -40px 0px; }
+
+.service-warp .feiji i {
+  background-position: 0px -50px; }
+
+.service-warp .shouhou i {
+  background-position: -40px -50px; }
+
+.service-warp .qiye i {
+  background-position: -85px -50px; }
+
+.banner-warp {
+  position: relative;
+  height: 480px; }
+  .banner-warp .banner-lunpo {
+    position: relative;
+    height: 480px;
+    overflow: hidden; }
+    .banner-warp .banner-lunpo:hover .left-btn {
+      opacity: 1;
+      background-position: -170px -63px; }
+    .banner-warp .banner-lunpo:hover .right-btn {
+      opacity: 1;
+      background-position: -234px -60px; }
+    .banner-warp .banner-lunpo .left-btn {
+      left: 225px; }
+      .banner-warp .banner-lunpo .left-btn:hover {
+        opacity: 1;
+        background-position: -170px -125px; }
+    .banner-warp .banner-lunpo .right-btn {
+      z-index: 1;
+      right: 25px; }
+      .banner-warp .banner-lunpo .right-btn:hover {
+        opacity: 1;
+        background-position: -234px -125px; }
+    .banner-warp .banner-lunpo .banner-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 9999px;
+      height: 480px;
+      font-size: 0; }
+      .banner-warp .banner-lunpo .banner-inner li {
+        display: inline-block;
+        height: 480px;
+        width: 1200px; }
+        .banner-warp .banner-lunpo .banner-inner li img {
+          width: 100%;
+          height: 100%; }
+    .banner-warp .banner-lunpo .banner-tip {
+      position: absolute;
+      bottom: 10px;
+      right: 450px; }
+      .banner-warp .banner-lunpo .banner-tip li {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: #d8d7d7;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-right: 4px;
+        border: 1px solid #9a9898; }
+    .banner-warp .banner-lunpo .banner-tip li.active {
+      background-color: #fff; }
+    .banner-warp .banner-lunpo .left-btn, .banner-warp .banner-lunpo .right-btn {
+      position: absolute;
+      top: 50%;
+      margin-top: -23px;
+      width: 61px;
+      height: 61px;
+      background-image: url(../images/index_sprite.png);
+      opacity: 0; }
+  .banner-warp .caidan-warp {
+    font-size: 12px;
+    z-index: 50;
+    position: absolute;
+    width: 220px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.4);
+    padding-top: 5px;
+    top: 0;
+    left: 0; }
+    .banner-warp .caidan-warp .caidan-list .one-li {
+      position: relative;
+      height: 56px;
+      line-height: 56px;
+      padding-left: 72px;
+      color: #333; }
+      .banner-warp .caidan-warp .caidan-list .one-li:hover {
+        background: rgba(0, 0, 0, 0.7); }
+      .banner-warp .caidan-warp .caidan-list .one-li:hover .tow-caidan {
+        display: block; }
+      .banner-warp .caidan-warp .caidan-list .one-li i {
+        position: absolute;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        left: 20px;
+        top: 13px;
+        background: url(../images/index_sprite.png) no-repeat; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(2) i {
+        background-position: -30px 0px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(3) i {
+        background-position: -60px 0px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(3) .H {
+        width: 12px;
+        height: 12px;
+        background-position: -69px -188px;
+        left: 176px;
+        top: 23px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(4) i {
+        background-position: -90px 0px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(5) i {
+        background-position: -120px 0px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(6) i {
+        background-position: -150px 0px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(6) .H {
+        width: 12px;
+        height: 12px;
+        background-position: -69px -188px;
+        left: 164px;
+        top: 23px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(7) i {
+        background-position: -180px 0px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(7) .H {
+        width: 12px;
+        height: 12px;
+        background-position: -69px -188px;
+        left: 180px;
+        top: 23px; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(8) i {
+        background-position: -210px 0px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .name {
+        color: #fff; }
+      .banner-warp .caidan-warp .caidan-list .one-li .style {
+        color: #a19d98; }
+      .banner-warp .caidan-warp .caidan-list .one-li .H {
+        width: 12px;
+        height: 12px;
+        background-position: -69px -188px;
+        left: 140px;
+        top: 23px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan {
+        display: none;
+        z-index: 10;
+        position: absolute;
+        background: white;
+        width: 250px;
+        height: 400px;
+        top: -16px;
+        left: 220px;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.1); }
+        .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan a {
+          color: #333; }
+          .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan a:hover {
+            color: #f60; }
+          .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan a:hover span {
+            color: red !important; }
+        .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei {
+          padding: 24px 0px 0 16px;
+          width: 250px;
+          height: 100%;
+          float: left;
+          box-sizing: border-box;
+          border-right: 1px solid #e0e0e0; }
+          .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei li {
+            width: 204px;
+            height: 40px;
+            margin-bottom: 14px; }
+            .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei li a {
+              display: block;
+              line-height: 40px; }
+              .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei li a img {
+                float: left;
+                width: 32px;
+                height: 32px;
+                margin-right: 16px; }
+        .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-tow {
+          float: left;
+          width: 220px;
+          height: 100%; }
+          .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-tow li {
+            border-bottom: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0; }
+            .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-tow li a {
+              display: block;
+              width: 220px;
+              height: 120px;
+              width: 180px;
+              padding: 20px 0;
+              overflow: hidden;
+              box-sizing: border-box; }
+              .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-tow li a img {
+                margin-left: 12px;
+                top: 0;
+                width: 80px;
+                height: 80px;
+                float: left; }
+              .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-tow li a .shop-name {
+                margin-top: 16px; }
+              .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-tow li a span {
+                display: block;
+                padding: 0 9px;
+                max-height: 34px;
+                line-height: 16px;
+                overflow: hidden; }
+        .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-three {
+          width: 220px;
+          float: left;
+          height: 100%;
+          text-align: center; }
+          .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-three li {
+            border-bottom: 1px solid #e0e0e0;
+            height: 240px; }
+            .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-three li a {
+              display: table-cell;
+              vertical-align: middle;
+              display: block;
+              width: 100%;
+              height: 100%;
+              padding-top: 30px; }
+              .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-three li a img {
+                margin: 0 auto;
+                width: 120px;
+                height: 120px; }
+              .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-three li a .shop_name {
+                line-height: 14px; }
+                .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan .lei-three li a .shop_name span {
+                  display: block;
+                  color: #999; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(4) .tow-caidan {
+        width: 881px; }
+        .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(4) .tow-caidan .lei:nth-of-type(1) {
+          border-right: none; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(6) .tow-caidan {
+        width: 881px; }
+        .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(6) .tow-caidan .lei:nth-of-type(1) {
+          border-right: none; }
+      .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(8) .tow-caidan {
+        width: 881px; }
+        .banner-warp .caidan-warp .caidan-list .one-li:nth-of-type(8) .tow-caidan .lei:nth-of-type(1) {
+          border-right: none; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan2 {
+        top: -72px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan3 {
+        top: -128px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan4 {
+        top: -184px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan5 {
+        top: -240px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan6 {
+        top: -296px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan7 {
+        top: -352px; }
+      .banner-warp .caidan-warp .caidan-list .one-li .tow-caidan8 {
+        top: -408px; }
+
+.fenlei-warp {
+  height: 201px; }
+  .fenlei-warp ul li {
+    border-bottom: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    border-right: 1px solid #e0e0e0;
+    width: 300px;
+    height: 200px;
+    float: left; }
+    .fenlei-warp ul li:nth-of-type(1) {
+      border-left: 1px solid #e0e0e0; }
+    .fenlei-warp ul li .yidong {
+      display: table-cell;
+      vertical-align: middle;
+      width: 299px;
+      height: 200px; }
+      .fenlei-warp ul li .yidong img {
+        margin: 0 auto;
+        width: 200px;
+        height: 180px; }
+
+.star {
+  margin-bottom: 120px; }
+
+.star-warp {
+  font-size: 12px;
+  text-align: center;
+  line-height: 26px; }
+  .star-warp a {
+    color: #333; }
+  .star-warp .star-img {
+    width: 100%;
+    height: 188px;
+    padding-top: 80px; }
+    .star-warp .star-img h2 {
+      height: 68px;
+      width: 160px;
+      margin: 0 auto;
+      background-position: 0 -60px;
+      background-image: url(../images/index_sprite.png); }
+  .star-warp .star-shop1 {
+    height: 680px; }
+    .star-warp .star-shop1 .star-shop1-left {
+      float: left;
+      display: table-cell;
+      vertical-align: middle;
+      width: 600px;
+      height: 680px;
+      border-right: 1px solid #e0e0e0;
+      border-top: 1px solid #e0e0e0;
+      border-left: 1px solid #e0e0e0; }
+      .star-warp .star-shop1 .star-shop1-left div {
+        padding-top: 30px; }
+      .star-warp .star-shop1 .star-shop1-left img {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto; }
+    .star-warp .star-shop1 .star-shop1-right {
+      float: left;
+      width: 597px;
+      height: 681px; }
+      .star-warp .star-shop1 .star-shop1-right .shop1-top {
+        height: 340px; }
+        .star-warp .star-shop1 .star-shop1-right .shop1-top div {
+          padding-top: 30px;
+          border-top: 1px solid #e0e0e0;
+          border-right: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          float: left;
+          width: 297px;
+          height: 310px; }
+          .star-warp .star-shop1 .star-shop1-right .shop1-top div img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto; }
+      .star-warp .star-shop1 .star-shop1-right .shop1-bottom {
+        height: 340px; }
+        .star-warp .star-shop1 .star-shop1-right .shop1-bottom div {
+          padding-top: 30px;
+          border-right: 1px solid #e0e0e0;
+          text-align: center;
+          float: left;
+          width: 297px;
+          height: 310px; }
+          .star-warp .star-shop1 .star-shop1-right .shop1-bottom div img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto; }
+  .star-warp .star-shop2 {
+    height: 681px; }
+    .star-warp .star-shop2 .shop2-right {
+      padding-top: 30px;
+      float: left;
+      display: table-cell;
+      vertical-align: middle;
+      width: 597px;
+      height: 680px;
+      border: 1px solid #e0e0e0; }
+      .star-warp .star-shop2 .shop2-right img {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto; }
+    .star-warp .star-shop2 .shop2-left {
+      float: left;
+      width: 600px; }
+      .star-warp .star-shop2 .shop2-left .shop2-top {
+        padding-top: 30px;
+        height: 310px;
+        border-left: 1px solid #e0e0e0;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+        width: 600px;
+        height: 340px; }
+        .star-warp .star-shop2 .shop2-left .shop2-top img {
+          width: 540px;
+          height: 280px;
+          margin: 0 auto; }
+      .star-warp .star-shop2 .shop2-left .shop2-bottom {
+        height: 340px; }
+        .star-warp .star-shop2 .shop2-left .shop2-bottom div {
+          padding-top: 30px;
+          border-left: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          float: left;
+          width: 297px;
+          height: 310px; }
+          .star-warp .star-shop2 .shop2-left .shop2-bottom div img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto; }
+  .star-warp .huiyuan {
+    height: 100px;
+    padding-top: 100px; }
+    .star-warp .huiyuan h2 {
+      height: 50px;
+      background-position: 0 -130px; }
+    .star-warp .huiyuan a {
+      color: #999; }
+      .star-warp .huiyuan a:hover {
+        color: #f60; }
+  .star-warp .HuiYuan {
+    height: 420px; }
+    .star-warp .HuiYuan ul {
+      height: 420px; }
+      .star-warp .HuiYuan ul li {
+        border-top: 1px solid #e0e0e0;
+        height: 420px; }
+        .star-warp .HuiYuan ul li .yidong {
+          display: table-cell;
+          vertical-align: middle;
+          width: 299px;
+          height: 300px; }
+          .star-warp .HuiYuan ul li .yidong img {
+            clear: both;
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 300px; }
+        .star-warp .HuiYuan ul li .btn-huiyuan {
+          display: block;
+          color: #333;
+          width: 118px;
+          height: 38px;
+          line-height: 38px;
+          border: 1px solid #c8c8c8;
+          border-radius: 2px;
+          margin: 0 auto; }
+          .star-warp .HuiYuan ul li .btn-huiyuan:hover {
+            background: #e0e0e0; }
+
+.yidong {
+  overflow: hidden;
+  position: relative; }
+  .yidong .youhui {
+    z-index: 10;
+    position: absolute;
+    width: 100px;
+    height: 29px;
+    top: 0;
+    right: 0;
+    background: #ff6600;
+    color: #fff; }
+
+.yidong img {
+  transition: 0.5s; }
+
+.yidong:hover img {
+  transform: translateY(-10px); }
+
+.yidong:hover .red {
+  color: red; }

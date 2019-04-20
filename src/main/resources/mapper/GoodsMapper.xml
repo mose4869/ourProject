@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mose.goods.mapper.GoodsMapper">
+
+
+    <!--省市联动-->
+    <select id="getCitysByPid" parameterType="int" resultType="com.mose.goods.dto.City">
+                select * from china where city_pid=#{city_pid}
+        </select>
+
+    <!--商品类型-->
+    <select id="getGoodsTypeByPid" parameterType="int" resultType="com.mose.goods.pojo.GoodsType">
+                select * from goods_type where type_pid=#{type_pid}
+        </select>
+
+<!---->
+    <select id="getGoodsInfoBy" parameterType="com.mose.goods.pojo.GoodsInfo" resultType="com.mose.goods.pojo.GoodsInfo">
+        select * from goodsinfo where status=1
+        <if test="goods_id!=null and goods_id!=''">
+            and goods_id=#{goods_id}
+        </if>
+        <if test="userid!=null and userid!=''">
+            and userid=#{userid}
+        </if>
+        <if test="goods_title!=null and goods_title!=''">
+            and goods_title=#{goods_title}
+        </if>
+        <if test="goods_description!=null and goods_description!=''">
+            and goods_description=#{goods_description}
+        </if>
+        <if test="goods_price!=null and goods_price!=''">
+            and goods_price=#{goods_price}
+        </if>
+        <if test="goods_pic!=null and goods_pic!=''">
+            and pic=#{goods_pic}
+        </if>
+        <if test="goods_type!=null and goods_type!=''">
+            and goods_type=#{goods_type}
+        </if>
+        <if test="goods_pid!=null and goods_pid!=''">
+            and goods_pid=#{goods_pid}
+        </if>
+        <if test="goods_num!=null and goods_num!=''">
+            and goods_num=#{goods_num}
+        </if>
+        <if test="goods_date!=null and goods_date!=''">
+            and goods_date=#{goods_date}
+        </if>
+        <if test="city!=null and city!=''">
+            and city=#{city}
+        </if>
+        <if test="rate!=null and rate!=''">
+            and rate=#{rate}
+        </if>
+        <if test="recommend!=null and recommend!=''">
+            and recommend=#{recommend}
+        </if>
+        ORDER BY rate DESC
+    </select>
+
+    <!--搜索-->
+    <select id="getSearchGoodS" parameterType="String" resultType="com.mose.goods.pojo.GoodsInfo">
+        SELECT tb1.* FROM( select g.*,gt.type_name  from  goodsinfo  g LEFT JOIN  goods_type gt
+        ON g.goods_type=gt.type_id or g.goods_pid=gt.type_id
+        <if test="city!=null and city!=''">
+            WHERE g.city=#{city}
+        </if>
+        )tb1 WHERE
+        tb1.type_name  LIKE CONCAT('%',#{key},'%') OR
+        tb1.goods_title LIKE CONCAT('%',#{key},'%') OR
+        tb1.goods_description LIKE CONCAT('%',#{key},'%')
+        GROUP BY tb1.goods_id
+        <if test="cause !=null and cause!=''">
+            ORDER BY ${cause} ${asc}
+        </if>
+    </select>
+
+
+
+<!--类型菜单-->
+    <resultMap id="getMenu" type="com.mose.goods.pojo.GoodsType">
+        <id column="type_id" property="type_id"></id>
+        <result column="type_name" property="type_name"></result>
+        <result column="pid" property="type_pid"></result>
+        <result column="status" property="status"></result>
+        <collection property="children" ofType="com.mose.goods.pojo.GoodsType">
+            <id column="cid" property="type_id"></id>
+            <result column="cname" property="type_name"></result>
+            <result column="cpid" property="type_pid"></result>
+            <result column="cstatus" property="status"></result>
+        </collection>
+    </resultMap>
+<!---->
+    <select id="getMenuSearch" parameterType="com.mose.goods.pojo.GoodsType" resultMap="getMenu">
+        select gt1.*,gt2.type_id cid,gt2.type_name cname,gt2.pid cpid,gt2.`status` cstatus from goods_type gt1 LEFT JOIN goods_type gt2 ON gt1.type_id=gt2.pid
+        WHERE gt1.pid=0
+    </select>
+
+</mapper>
