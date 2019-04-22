@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mose.user.mapper.UserMapper">
+
+    <!--登录判断用户名密码-->
+    <select id="LoginGetUser" resultType="com.mose.user.pojo.Userinfo" parameterType="com.mose.user.pojo.Userinfo">
+        select  * from  userinfo where username=#{username} and password=#{password}
+    </select>
+
+
+</mapper>

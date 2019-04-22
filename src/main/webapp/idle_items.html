@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link  rel = "stylesheet"  href = "css/bootstrap.min.css" >
+
+	<script src = "js/jquery-3.3.1.js"> </script >
+	<script src="js/bootstrap.min.js"></script>
+	<title>发布闲置</title>
+	<style type="text/css">
+		.image_container {
+			display: inline-block;
+			float: left;
+		}
+
+		#tdRoomPicture a, .image_c a{
+			text-align: center;
+			vertical-align: middle;
+			text-decoration: none;
+		}
+
+		a.addImg {
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			display: inline-block;
+			font-size: 50px;
+			background-color: #dae6f3;
+		}
+
+		.image_container a.previewBox {
+			background-color: #dae6f3;
+			margin: 0 3px 0 0;
+			display: none;
+			/*display: inline-block;*/
+		}
+
+		.image_container .delImg {
+			position: absolute;
+			color: #f00;
+			margin: 0 0 0 84px;
+			font-size: 16px;
+			width: 16px;
+			height: 16px;
+			line-height: 16px;
+			text-align: center;
+			vertical-align: middle;
+			background-color: #c3c3c3;
+		}
+
+		.defaultImg {
+			border: 1px solid #f90303;
+		}
+
+		.defaultImg:before {
+			content: "产品主图";
+			float: left;
+			position: absolute;
+			color: #f90e34;
+			font-size: 14px;
+		}
+
+		.defaultImg:after {
+			content: "";
+		}
+	</style>
+</head>
+<body>
+
+<!--发布闲置页面-->
+<!--帖子形式的商品信息-->
+<div class="container">
+	<!---->
+	<div style="margin-bottom: 2px;">
+		<div class="row clearfix">
+			<div class="col-md-4 column">
+				<span>2018.185151515</span>
+			</div>
+			<div class="col-md-6 column">
+				<span>2018.185151515</span>
+			</div>
+			<div class="col-md-2 column">
+				<span>2018.185151515</span>
+			</div>
+		</div>
+	</div>
+
+	<!--导航栏-->
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="index.xml">首页</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<!--   class="active"  选中          -->
+						<li >
+							<a href="#">拍卖</a>
+						</li>
+						<li>
+							<a href="#">社区</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">分类功能<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">功能</a>
+								</li>
+								<li>
+									<a href="#">功能2</a>
+								</li>
+
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" />
+						</div> <button type="submit" class="btn btn-default">搜索</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">我的关注</a>
+						</li>
+						<li class="dropdown">
+							<!--未登录  用户名为登录  -->
+
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">用户名<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">个人信息</a>
+								</li>
+								<li>
+									<a href="#">我的订单</a>
+								</li>
+								<li>
+									<a href="#">我的</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="#">注销</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+			</nav>
+
+
+
+			<!--实际内容-->
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="row clearfix">
+						<div class="col-md-2 column">
+						</div>
+						<div class="col-md-6 column">
+							<form role="form" id="Form1" action="addGoodsInfo" method="post" enctype="multipart/form-data">
+
+								<div class="form-group">
+									<label for="exampleInputTitle">商品标题:</label>
+									<input type="text" class="form-control" id="exampleInputTitle" name="goods_title"/>
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPrice">商品价格:</label>
+									<input type="number" class="form-control" id="exampleInputPrice" name="goods_price" style="width:120px" />
+								</div>
+								<div class="form-group">
+									<label for="goodsTypeParent">商品类别:</label><br/>
+									<select id="goodsTypeParent" name="goods_pid" style="width:80px;height:30px;">
+										<!--<option name="goods_pid" value="1">1</option>-->
+
+									</select><span>-</span>
+									<select id="goodsType" name="goods_type" style="width:80px;height:30px;">
+										<!--<option name="goods_type" value="1">1</option>-->
+
+									</select>
+
+								</div>
+
+								<div class="form-group">
+									<label for="goodscity">所属地区:</label><br/>
+									<select id="goodsprovince" name="province" style="width:80px;height:30px;">
+										<!--<option name="province" value="guangdong">广东省</option>-->
+
+									</select><span>-</span>
+									<select id="goodscity" name="city" style="width:80px;height:30px;">
+										<!--<option name="city" value="广州市">广州市</option>-->
+
+									</select><span>-</span>
+									<select id="goodsdistrict" name="district" style="width:80px;height:30px;">
+										<!--<option name="district" value="广州市">天河区</option>-->
+
+									</select>
+
+								</div>
+
+								<div class="form-group">
+									<label for="goodsNewLevel">新旧程度:</label><br/>
+									<select id="goodsNewLevel" name="goods_newLevel" style="width: 80px;height:30px;">
+										<option name="goods_newLevel" value="全新">全新</option>
+										<option name="goods_newLevel" value="95新">95新</option>
+										<option name="goods_newLevel" value="9成新">9成新</option>
+										<option name="goods_newLevel" value="8成新">8成新</option>
+										<option name="goods_newLevel" value="7成新及以下">7成新及以下</option>
+
+									</select>
+
+								</div>
+								<div class="form-group">
+									<label for="exampleInputDescribe">商品详情:</label>
+									<textarea id="exampleInputDescribe" name="goods_description" style="width: 100%;"></textarea>
+								</div>
+
+								<div id="tdRoomPicture">
+									<label for="exampleInputDescribe">商品图片:</label><br/>
+									<input type="hidden" name="defaultPid" value="1" id="defaultPicture"/>
+									<input type="hidden" name="userid" value="0" id="userid"/>
+
+									<!--<div class="image_container" data-picId="1">-->
+									<!--<input id="RoomInfo1_RoomPicture1" name="RoomInfo1_RoomPicture1" type="file" accept="image/jpeg,image/png,image/gif" style="display: none;" />-->
+									<!--<input id="RoomInfo1_RoomPictureHidDefault1" name="RoomInfo1_RoomPictureHidDefault1" type="hidden" value="0" />-->
+									<!--<a href="javascript:;" id="previewBox1" class="previewBox defaultImg">-->
+									<!--<div class="delImg">&times;</div>-->
+									<!--<img id="preview1" style="height: 100px; width: 100px; border-width: 0px;" />-->
+									<!--</a>-->
+									<!--</div>-->
+
+									<a href="javascript:;" class="addImg" data-picid="0">+</a>
+								</div><br/><br/>
+								<button type="submit" class="btn btn-default" style="background-color: #607bb8" >发布</button>
+							</form>
+						</div>
+						<div class="col-md-4 column">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    //多图片上传，删除，默认图片设置
+    $(function () {
+        var picId = 0;
+        var pictureUploading = false;
+        $("#Form1").delegate(".addImg", "click", function () {
+            if (!!pictureUploading) return;
+            pictureUploading = true;
+
+            picId = parseInt($(this).attr("data-picId"));
+            picId++;
+            $(this).attr("data-picId", picId);
+
+            $(this).before("<div class=\"image_container\" data-picId=\"" + picId + "\">"
+                + "<input id=\"RoomInfo1_RoomPicture" + picId + "\" name=\"RoomInfo1_RoomPicture" +
+                "\" type=\"file\" accept=\"image/jpeg,image/png,image/gif\" style=\"display: none;\" />"
+                + "<input id=\"RoomInfo1_RoomPictureHidDefault" + picId + "\" name=\"RoomInfo1_RoomPictureHidDefault"
+                + picId + "\" type=\"hidden\" value=\"0\" />"
+                + "<a href=\"javascript:;\" id=\"previewBox" + picId + "\" class=\"previewBox\">"
+                + "<div class=\"delImg\">&times;</div>"
+                + "<img id=\"preview" + picId + "\" style=\"height:100px;width:100px;border-width:0px;\" />"
+                + "</a>"
+                + "</div>");
+
+            $("#RoomInfo1_RoomPicture" + picId).change(function () {
+                var $file = $(this);
+                var fileObj = $file[0];
+                var windowURL = window.URL || window.webkitURL;
+                var dataURL;
+
+                $("#previewBox" + picId).css("display", "inline-block");
+                var $img = $("#preview" + picId);
+                //var $img = $("#preview1");
+
+                if (fileObj && fileObj.files && fileObj.files[0]) {
+                    dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                    $img.attr('src', dataURL);
+                } else {
+                    dataURL = $file.val();
+                    var imgObj = $img; //document.getElementById("preview");
+                    // 两个坑:
+                    // 1、在设置filter属性时，元素必须已经存在在DOM树中，动态创建的Node，也需要在设置属性前加入到DOM中，先设置属性在加入，无效；
+                    // 2、src属性需要像下面的方式添加，上面的两种方式添加，无效；
+                    imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                    imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+                }
+
+                if (1 === picId) {
+                    defaultImg(picId, true);
+                }
+                pictureUploading = false;
+
+            });
+            $("#RoomInfo1_RoomPicture" + picId).click();
+
+            //设置默认图片
+            $(".previewBox").click(function () {
+                var _picId = parseInt($(this).parent(".image_container").attr("data-picId"));
+
+                $(".image_container").each(function (index,item) {
+                    var i = parseInt($(this).attr("data-picId"));
+                    // var input=$(this).context.childNodes[0];
+                    if (i === _picId){
+                        defaultImg(i, true);
+                        $("#defaultPicture").val(index);
+                    }
+                    else
+                        defaultImg(i, false);
+                });
+            });
+
+            //删除上传的图片
+            $(".delImg").click(function () {
+                var _picId = parseInt($(this).parent().parent(".image_container").attr("data-picId"));
+                $(".image_container[data-picid='" + _picId + "']").remove();
+                if ($(".image_container").length > 0 && $(".defaultImg").length < 1) {
+                    $(".image_container").each(function () {
+                        var i = parseInt($(this).attr("data-picId"));
+                        defaultImg(i, true);
+                        $("#defaultPicture").val(i);
+                        return false;
+                    });
+                }
+                if (_picId< $("#defaultPicture").val()) {
+                    $("#defaultPicture").val( $("#defaultPicture").val()-1);
+                }
+            });
+
+        });
+
+        function defaultImg(picId, selected) {
+            if (!picId) return;
+            if (!!selected) {
+                $("#RoomInfo1_RoomPictureHidDefault" + picId).val(1);
+                $("#previewBox" + picId).addClass("defaultImg");
+            }
+            else {
+                $("#RoomInfo1_RoomPictureHidDefault" + picId).val(0);
+                $("#previewBox" + picId).removeClass("defaultImg");
+            }
+        }
+    });
+
+    var city_pid=1;
+    var selcctid=$("#goodsprovince");
+    var optionname="province";
+
+    //根据city_pid 拿到子地区显示到标签内方法；
+    function initCity(city_pid,selectid,optionname){
+        $.ajax({
+            type:'POST',
+            url:'getCitys',
+            contentType:'application/json; charset=utf-8',
+            dataType:"json",
+            data:JSON.stringify({
+                "city_pid":city_pid
+            }),
+            success:function (response) {
+                $(response).each(function(index,item){
+                    $(selectid).append("<option name="+optionname+" value="+item.city_id+">"+item.city_name+
+                        "</option>");
+                })
+            },
+            error:function (response) {
+                console.log(response)
+            }
+        })
+    }
+    // 初始化省份，及默认省份的城市
+    initCity(1,selcctid,optionname);
+    $("#goodscity").append("<option name=\"province\" value=\"2\">北京市</option>");
+
+    //根据省份拿城市
+    $("#goodsprovince").change(function () {
+
+        var cid= $(this).val();
+        var sid=$("#goodscity");
+        sid.empty();
+        var oname="city";
+        alert(cid+"-"+sid+"-"+oname);
+        initCity(cid,sid,oname)
+    })
+    //根据城市拿区域
+    $("#goodscity").change(function () {
+        var cid= $(this).val();
+        var sid=$("#goodsdistrict");
+        sid.empty();
+        var oname="city";
+        alert(cid+"-"+sid+"-"+oname);
+        initCity(cid,sid,oname)
+    })
+
+    //根据type_pid 拿到子菜单显示到标签内方法；
+    function initGoodsType(type_pid,selectid,optionname) {
+        $.ajax({
+            type:'POST',
+            url:'getTypes',
+            contentType:'application/json; charset=utf-8',
+            dataType:"json",
+            data:JSON.stringify({
+                "type_pid":type_pid
+            }),
+            success:function (response) {
+                $(response).each(function(index,item){
+                    $(selectid).append("<option name="+optionname+" value="+item.type_id+">"+item.type_name+
+                        "</option>");
+                })
+            },
+            error:function (response) {
+                console.log(response)
+            }
+        })
+
+    }
+
+    //母商品类型标签及name属性
+    var goodsTypeinput=$("#goodsTypeParent");
+    var goodsTypename="goods_pid";
+    //初始化母菜单；
+    initGoodsType(0,goodsTypeinput,goodsTypename);
+
+    //根据母菜单选择项初始化子菜单；
+    $("#goodsTypeParent").change(function () {
+        var type_pid=$(this).val();
+        var goodsTypeinput2=$("#goodsType")
+        var goodsTypename2="goods_type";
+        initGoodsType(type_pid,goodsTypeinput2,goodsTypename2)
+    })
+</script>
+
+</body>
+</html>
